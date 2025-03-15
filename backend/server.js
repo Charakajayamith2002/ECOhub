@@ -1,29 +1,33 @@
-require('dotenv').config();
+require('dotenv').config();  // Load environment variables from .env file
 const express = require('express');
-const cors = require('cors');  // Import cors
-const { connectDB } = require('./DB/connectDB');
+const cors = require('cors');
+const { connectDB } = require('./DB/connectDB');  // Make sure this file exists and is correctly implemented
 
 const crop = require("./routes/crop.js");
-
-
 
 // Create express app
 const app = express();
 
 // Middleware
-app.use(express.json()); 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json());  // For parsing application/json
+app.use(express.urlencoded({ extended: true }));  // For parsing application/x-www-form-urlencoded
 
 // Setup CORS
 app.use(cors({
   origin: 'http://localhost:5173',  // Your frontend URL
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed methods
-  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
-  credentials: true, 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed methods
+  allowedHeaders: ['Content-Type', 'Authorization'],  // Allowed headers
+  credentials: true,  // Allow cookies to be sent
 }));
 
-
 // Routes
+app.use("/api/crop", crop);  // Crop API route
 
-//crop routes
-app.use("/api/crop", crop);  
+// Connect to the database
+connectDB();  // Function to connect to your database (ensure this is defined and implemented properly)
+
+// Start the server
+const port = process.env.PORT || 4000;  // Default port 5000 or from .env file
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+});
