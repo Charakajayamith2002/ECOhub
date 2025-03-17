@@ -2,6 +2,10 @@ require('dotenv').config();  // Load environment variables from .env file
 const express = require('express');
 const cors = require('cors');
 const { connectDB } = require('./DB/connectDB');  // Make sure this file exists and is correctly implemented
+const authRoutes = require('./routes/auth.route');
+
+
+
 
 const crop = require("./routes/crop.js");
 
@@ -21,6 +25,9 @@ app.use(cors({
 }));
 
 // Routes
+app.use('/api/auth', authRoutes);
+
+
 app.use("/api/crop", crop);  // Crop API route
 
 // Connect to the database
