@@ -7,11 +7,11 @@ const authRoutes = require('./routes/auth.route');
 
 
 
-<<<<<<< HEAD
-const crop = require("./routes/crop.js");
-=======
 
->>>>>>> main
+const crop = require("./routes/crop.js");
+
+
+
 
 // Create express app
 const app = express();
@@ -32,23 +32,19 @@ app.use(cors({
 app.use('/api/auth', authRoutes);
 
 
-<<<<<<< HEAD
-app.use("/api/crop", crop);  // Crop API route
-=======
 
->>>>>>> main
+app.use("/api/crop", crop);  // Crop API route
+
 
 // Connect to the database
 connectDB();  // Function to connect to your database (ensure this is defined and implemented properly)
 
 // Start the server
 const port = process.env.PORT || 4000;  // Default port 5000 or from .env file
-<<<<<<< HEAD
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
-=======
+
+
 // Start the server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);  // Corrected line with backticks
->>>>>>> main
+
 });
