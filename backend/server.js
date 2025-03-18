@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));  // For parsing application/x-w
 
 // Setup CORS
 app.use(cors({
-  origin: 'http://localhost:5173',  // Your frontend URL
+  origin: ['http://localhost:3000', 'http://localhost:5173'],  // Your frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'],  // Allowed methods
   allowedHeaders: ['Content-Type', 'Authorization'],  // Allowed headers
   credentials: true,  // Allow cookies to be sent
