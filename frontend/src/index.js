@@ -7,7 +7,29 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+
+<Router>
+  <div className="flex flex-col min-h-screen">
+    <Header />
+    <main className="flex-grow">
+      <Routes>
+       
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/signup' element={<Signup/>}/>
+        <Route path='/profile' element={<Profile/>}/>
+        <Route path='/sellerProfile' element={<SellerProfile/>}/>
+        <Route path='/aboutus' element={<AboutUs/>}/>
+
+        
+
+       
+      </Routes>
+    </main>
+    <Footer />
+  </div>
+</Router>
+</Provider>
   </React.StrictMode>
 );
 
