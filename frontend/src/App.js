@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import './App.css'
-import FileUpload from './Components/FileUpload'
 import Homepage from './Pages/Homepage'
 
 function App() {
