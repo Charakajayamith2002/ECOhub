@@ -44,18 +44,18 @@ const CropSchema = new Schema({
     enum: ["Healthy", "At-Risk", "Infected"],
     default: "Healthy",
   },
-  fertilizerUsed: [
-    {
-      fertilizerId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Fertilizer",
-      },
-      quantity: {
-        type: Number,
-        required: true,
-      },
-    },
-  ],
+  // fertilizerUsed: [
+  //   {
+  //     fertilizerId: {
+  //       type: mongoose.Schema.Types.ObjectId,
+  //       ref: "Fertilizer",
+  //     },
+  //     quantity: {
+  //       type: Number,
+  //       required: true,
+  //     },
+  //   },
+  // ],
   cropImage: {
     public_id: String, // Cloudinary Image ID
     url: {
@@ -64,25 +64,25 @@ const CropSchema = new Schema({
     },
   },
 
-  weatherData: {
-    temperature: Number,
-    humidity: Number,
-    rainfall: Number,
-    lastUpdated: Date,
-  },
-  reminders: [
-    {
-      message: String,
-      dueDate: Date,
-      completed: {
-        type: Boolean,
-        default: false,
-      },
-    },
-  ],
-  notes: {
-    type: String,
-  },
+  // weatherData: {
+  //   temperature: Number,
+  //   humidity: Number,
+  //   rainfall: Number,
+  //   lastUpdated: Date,
+  // },
+  // reminders: [
+  //   {
+  //     message: String,
+  //     dueDate: Date,
+  //     completed: {
+  //       type: Boolean,
+  //       default: false,
+  //     },
+  //   },
+  // ],
+  // notes: {
+  //   type: String,
+  // },
 }, { timestamps: true });
 
 module.exports = mongoose.model("Crop", CropSchema);
