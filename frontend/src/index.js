@@ -40,7 +40,6 @@ root.render(
       <Routes>
 
         <Route path='/' element={<App />} />
-
         <Route path='/login' element={<Login/>}/>
         <Route path='/signup' element={<Signup/>}/>
         <Route path='/profile' element={<Profile/>}/>
