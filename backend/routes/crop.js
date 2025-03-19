@@ -10,4 +10,7 @@ router.get("/all-crops", cropController.getAllCrops);
 
 router.delete("/delete-crop/:id", cropController.deleteCrop);
 
+router.get("/crops/:id", cropController.getCropById);
+
+
 module.exports = router;

@@ -22,6 +22,9 @@ import SellerProfile from './Components/SellerProfile.jsx';
 import AboutUs from './Components/AboutUs.jsx';
 
 
+import AddCropForm from './Components/AddCropForm.jsx';
+import AllCrops from './Components/CropList.jsx';
+
 
 
 
@@ -45,6 +48,10 @@ root.render(
         <Route path='/profile' element={<Profile/>}/>
         <Route path='/sellerProfile' element={<SellerProfile/>}/>
         <Route path='/aboutus' element={<AboutUs/>}/>
+
+        <Route path='/AddCrop' element={<AddCropForm/>}/>
+        <Route path='/Allcrops' element={<AllCrops/>} />
+
 
         
 

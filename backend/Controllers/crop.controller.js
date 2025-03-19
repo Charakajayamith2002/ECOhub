@@ -127,3 +127,23 @@ exports.getAllCrops = async (req, res) => {
       res.status(500).json({ message: "Server error", error: error.message });
     }
   };
+
+
+
+  exports.getCropById = async (req, res) => {
+    try {
+      const { id } = req.params;
+  
+      // Find the crop by ID
+      const crop = await Crop.findById(id).populate("userId", "name email");
+  
+      if (!crop) {
+        return res.status(404).json({ message: "Crop not found" });
+      }
+  
+      res.status(200).json({ message: "Crop fetched successfully", crop });
+    } catch (error) {
+      res.status(500).json({ message: "Server error", error: error.message });
+    }
+  };
+  

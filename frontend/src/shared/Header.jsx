@@ -31,6 +31,8 @@ const Header = () => {
               <NavItem to="/manageFertilizers" label="Fertilizers" />
               <NavItem to="/detectDisease" label="Pests & Diseases" />
               <NavItem to="/allPosts" label="Community" />
+              <NavItem to="/Allcrops" label="Crop plans" onClick={() => setIsOpen(false)} />
+
               <button
                 onClick={handleLogout}
                 className="flex items-center space-x-2 text-red-400 hover:text-red-500 transition"
@@ -78,6 +80,8 @@ const Header = () => {
                 <NavItem to="/manageFertilizers" label="Fertilizers" onClick={() => setIsOpen(false)} />
                 <NavItem to="/detectDisease" label="Pests & Diseases" onClick={() => setIsOpen(false)} />
                 <NavItem to="/allPosts" label="Community" onClick={() => setIsOpen(false)} />
+                <NavItem to="/Allcrops" label="Allcropplans" onClick={() => setIsOpen(false)} />
+
                 <button
                   onClick={handleLogout}
                   className="flex items-center justify-center space-x-2 text-red-400 hover:text-red-500 transition"
