@@ -61,7 +61,7 @@ const Footer = () => {
         </div>
 
         {/* Social Media */}
-        <div className="w-full flex justify-center mt-8 md:mt-0">
+        <div className="mt-8 pt-8 w-full flex justify-center  md:mt-0">
           <div className="flex space-x-6">
             <a href="#" className="text-3xl text-gray-400 hover:text-green-400 transition">
               <FaFacebook />

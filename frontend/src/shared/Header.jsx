@@ -17,11 +17,11 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-black text-white p-4 shadow-md fixed w-full z-50">
-      <div className="container mx-auto flex justify-between items-center px-6">
+    <header className="bg-black text-white p-4 shadow-md fixed w-full z-50 ">
+      <div className="mt-1 container mx-auto flex justify-between items-center px-6">
         {/* Logo */}
         <Link to="/" className="text-3xl font-extrabold text-green-400">
-          EcoPro
+        Green Farming Hub
         </Link>
 
         {/* Desktop Navigation */}
@@ -31,6 +31,7 @@ const Header = () => {
               <NavItem to="/manageFertilizers" label="Fertilizers" />
               <NavItem to="/detectDisease" label="Pests & Diseases" />
               <NavItem to="/allPosts" label="Community" />
+              <NavItem to="/Allcrops" label="Crop Plans" />
               <button
                 onClick={handleLogout}
                 className="flex items-center space-x-2 text-red-400 hover:text-red-500 transition"
@@ -78,6 +79,8 @@ const Header = () => {
                 <NavItem to="/manageFertilizers" label="Fertilizers" onClick={() => setIsOpen(false)} />
                 <NavItem to="/detectDisease" label="Pests & Diseases" onClick={() => setIsOpen(false)} />
                 <NavItem to="/allPosts" label="Community" onClick={() => setIsOpen(false)} />
+                <NavItem to="/Allcrops" label="Allcropplans" onClick={() => setIsOpen(false)} />
+
                 <button
                   onClick={handleLogout}
                   className="flex items-center justify-center space-x-2 text-red-400 hover:text-red-500 transition"
