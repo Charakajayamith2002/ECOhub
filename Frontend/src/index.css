@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body, html {
+    margin: 0;
+    padding-top: 72px; 
+    padding: 0;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    font-family: 'Your Preferred Font', sans-serif;
+  }
+  
+.Navbar {
+    border-radius: 0 0 10px 10px;
+}
+
+.Wrapper{
+    border: lightgreen solid 1px;
+}
