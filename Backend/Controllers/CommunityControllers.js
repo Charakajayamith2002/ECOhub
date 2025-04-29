@@ -18,7 +18,8 @@ const getAllInventory = async (req, res, next) => {
   return res.status(200).json({ inven });
 };
 
-// data Insert
+// Inventory data insert
+
 const addInventory = async (req, res, next) => {
   const { fertilizer, work, uname, title, disc, imgurl,pest,pestcontral,challenge,userId } =
     req.body;
@@ -51,7 +52,7 @@ const addInventory = async (req, res, next) => {
   return res.status(200).json({ inven });
 };
 
-//Get by Id
+// Get inventories by Id
 const getById = async (req, res, next) => {
   const id = req.params.id;
 
@@ -69,7 +70,7 @@ const getById = async (req, res, next) => {
   return res.status(200).json({ inven });
 };
 
-//Update inven Details
+//Update Inventory
 const updateInventory = async (req, res, next) => {
   const id = req.params.id;
   const {  fertilizer, work, uname, title, disc, imgurl,pest,pestcontral,challenge } =
@@ -103,7 +104,7 @@ const updateInventory = async (req, res, next) => {
   return res.status(200).json({ invens });
 };
 
-//Delete inven Details
+//Delete Inventory
 const deleteInventory = async (req, res, next) => {
   const id = req.params.id;
 
