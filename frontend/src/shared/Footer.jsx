@@ -1,57 +1,90 @@
-import React from 'react'
-import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from 'react-icons/fa'
+import React from "react";
+import { FaFacebook, FaInstagram, FaTwitter, FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <div>
-      <div className='bg-black' >
-      <div className='flex flex-wrap justify-evenly'>
-        <div className=' w-80 h-80 mt-5 text-white'>
-          <h1 className='text-3xl font-medium text-green-400'>EcoPro</h1>
-          <div className='h-1 w-36 bg-green-10 rounded-full mt-2'></div>
-          <ul className='mt-5 text-lg'>
-            <li className='mt-3'>Home</li>
-            <li className='mt-3'>Browse</li>
-            <li className='mt-3'>Sign In</li>
-            <li className='mt-3'>Sign up</li>
+    <footer className="bg-black text-white py-12">
+      <div className="container mx-auto flex flex-wrap justify-between px-6 lg:px-16">
+        {/* EcoPro Brand Section */}
+        <div className="w-full md:w-1/4 mb-8 md:mb-0">
+          <h1 className="text-3xl font-bold text-green-400">EcoPro</h1>
+          <p className="text-gray-400 mt-2 text-sm">
+            Sustainable farming for a better future.
+          </p>
+          <div className="h-1 w-24 bg-green-500 rounded-full mt-3"></div>
+        </div>
+
+        {/* Quick Links */}
+        <div className="w-full md:w-1/4 mb-8 md:mb-0">
+          <h2 className="text-xl font-semibold text-green-400">Quick Links</h2>
+          <ul className="mt-4 space-y-3 text-gray-300">
+            <li className="hover:text-green-400 transition">
+              <a href="/">Home</a>
+            </li>
+            <li className="hover:text-green-400 transition">
+              <a href="/browse">Browse</a>
+            </li>
+            <li className="hover:text-green-400 transition">
+              <a href="/login">Sign In</a>
+            </li>
+            <li className="hover:text-green-400 transition">
+              <a href="/register">Sign Up</a>
+            </li>
           </ul>
         </div>
 
-        <div className='text-white w-80 h-80 mt-5'>
-          <h1 className='text-3xl font-medium text-green-400'>Get help</h1>
-          <div className='h-1 w-20 bg-green-10 rounded-full mt-2'></div>
-          <ul className='mt-5 text-lg'>
-            <li className='mt-3'>FAQ</li>
-            <li className='mt-3'>Pest & Diseases</li>
-            <li className='mt-3'>Fertilizers</li>
-            <li className='mt-3'>Community</li>
+        {/* Get Help Section */}
+        <div className="w-full md:w-1/4 mb-8 md:mb-0">
+          <h2 className="text-xl font-semibold text-green-400">Get Help</h2>
+          <ul className="mt-4 space-y-3 text-gray-300">
+            <li className="hover:text-green-400 transition">
+              <a href="/faq">FAQ</a>
+            </li>
+            <li className="hover:text-green-400 transition">
+              <a href="/diseases">Pests & Diseases</a>
+            </li>
+            <li className="hover:text-green-400 transition">
+              <a href="/fertilizers">Fertilizers</a>
+            </li>
+            <li className="hover:text-green-400 transition">
+              <a href="/community">Community</a>
+            </li>
           </ul>
         </div>
 
-        <div className='text-white w-80 h-80 mt-5'>
-          <h1 className='text-3xl font-medium text-green-400'>Visit Us</h1>
-          <div className='h-1 w-20 bg-green-10 rounded-full mt-2'></div>
-          <ul className='mt-5 text-lg'>
-            <li className='mt-3'>236/12</li>
-            <li className='mt-3'>Pitipana North</li>
-            <li className='mt-3'>Homagama</li>
-          </ul>
+        {/* Visit Us */}
+        <div className="w-full md:w-1/4 mb-8 md:mb-0">
+          <h2 className="text-xl font-semibold text-green-400">Visit Us</h2>
+          <p className="mt-4 text-gray-300">
+            236/12, Pitipana North, Homagama, Sri Lanka
+          </p>
         </div>
-        <div className='text-white w-80 h-80 mt-5'>
-        <h1 className='text-3xl font-medium text-green-400'>Follow us</h1>
-        <div className='h-1 w-20 bg-green-10 rounded-full mt-2'></div>
-        <div className='flex flex-wrap'>
-          <FaFacebook className='text-4xl mt-5 mx-2 ' />
-          <FaInstagram className='text-4xl mt-5 mx-2' />
-          <FaTwitter className='text-4xl mt-5 mx-2' />
-          <FaLinkedin className='text-4xl mt-5 mx-2' />
-        </div>
+
+        {/* Social Media */}
+        <div className="mt-8 pt-8 w-full flex justify-center  md:mt-0">
+          <div className="flex space-x-6">
+            <a href="#" className="text-3xl text-gray-400 hover:text-green-400 transition">
+              <FaFacebook />
+            </a>
+            <a href="#" className="text-3xl text-gray-400 hover:text-green-400 transition">
+              <FaInstagram />
+            </a>
+            <a href="#" className="text-3xl text-gray-400 hover:text-green-400 transition">
+              <FaTwitter />
+            </a>
+            <a href="#" className="text-3xl text-gray-400 hover:text-green-400 transition">
+              <FaLinkedin />
+            </a>
+          </div>
         </div>
       </div>
-    </div>
 
-    </div>
-  )
-}
+      {/* Copyright Section */}
+      <div className="border-t border-gray-700 mt-8 pt-6 text-center text-gray-500 text-sm">
+        © {new Date().getFullYear()} EcoPro. All Rights Reserved.
+      </div>
+    </footer>
+  );
+};
 
-export default Footer
+export default Footer;
