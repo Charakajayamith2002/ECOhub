@@ -2,15 +2,19 @@ const express = require("express");
 const router = express.Router();
 const cropController = require("../Controllers/crop.controller");
 
-router.post("/create", cropController.createCrop);
+const multer = require("multer");
+const upload = multer({ storage: multer.memoryStorage() }); 
 
-router.put("/edit-crops/:id", cropController.editCrop);
+router.post("/create", upload.single("cropImage"), cropController.createCrop);
+
+router.put('/edit-crops/:id', upload.single('cropImage'), cropController.editCrop);
+
+
+router.get("/crop/:id", cropController.getCropById);
+
 
 router.get("/all-crops", cropController.getAllCrops);
 
 router.delete("/delete-crop/:id", cropController.deleteCrop);
-
-router.get("/crops/:id", cropController.getCropById);
-
 
 module.exports = router;

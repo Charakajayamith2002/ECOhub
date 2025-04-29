@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -97,7 +97,8 @@ const EditCropForm = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto my-8">
+    
+    <div className="pt-32 mt-32 mt-32 max-w-4xl mx-auto my-8">
       <h1 className="text-3xl font-semibold text-center mb-6">Edit Crop</h1>
 
       {message && (
