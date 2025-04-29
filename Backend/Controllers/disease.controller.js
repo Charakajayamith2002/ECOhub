@@ -1,6 +1,7 @@
 const dotenv = require('dotenv');
 dotenv.config();
 
+//create disease detect function
 const detectDisease = async (req, res) => {
   try {
     const image = req.file;
