@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
+//upload file function
 const FileUpload = () => {
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
