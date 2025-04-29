@@ -1,5 +1,7 @@
 const Inventory = require("../models/CommunityModel");
 
+//create get all inventory
+
 const getAllInventory = async (req, res, next) => {
   let inven;
   // Get all Inventory
