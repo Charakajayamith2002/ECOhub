@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body, html {
     margin: 0;
     padding-top: 72px; 
