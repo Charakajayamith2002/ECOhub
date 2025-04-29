@@ -1,7 +1,6 @@
 const Inventory = require("../models/CommunityModel");
 
 //create get all inventory
-
 const getAllInventory = async (req, res, next) => {
   let inven;
   // Get all Inventory
@@ -19,7 +18,6 @@ const getAllInventory = async (req, res, next) => {
 };
 
 // Inventory data insert
-
 const addInventory = async (req, res, next) => {
   const { fertilizer, work, uname, title, disc, imgurl,pest,pestcontral,challenge,userId } =
     req.body;
@@ -63,6 +61,7 @@ const getById = async (req, res, next) => {
   } catch (err) {
     console.log(err);
   }
+
   // not available invens
   if (!inven) {
     return res.status(404).json({ message: "Inventory Not Found" });
