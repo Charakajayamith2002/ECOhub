@@ -21,7 +21,11 @@ const LandingPage = () => {
       >
         {images.map((image, index) => (
           <div key={index} className="relative w-full h-screen">
-            <img src={image} alt={`Slide ${index + 1}`} className="w-full h-full object-cover" />
+            <img
+              src={image}
+              alt={`Slide ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
 
             {/* Dark Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black/70"></div>
@@ -34,7 +38,7 @@ const LandingPage = () => {
                 transition={{ duration: 1.2, ease: "easeOut" }}
                 className="text-4xl md:text-6xl font-extrabold text-green-400 drop-shadow-xl"
               >
-                Welcome to the Fertilizer Marketplace
+                Welcome to the Green Farming Hub
               </motion.h1>
 
               <motion.p
@@ -43,7 +47,8 @@ const LandingPage = () => {
                 transition={{ duration: 1.4, ease: "easeOut", delay: 0.5 }}
                 className="text-lg md:text-2xl text-green-100 mt-4 max-w-3xl drop-shadow-lg"
               >
-                Buy and sell high-quality fertilizers to boost your farming productivity.
+                Green Farming Hub is transforming agriculture through
+                technology.{" "}
               </motion.p>
 
               <motion.button

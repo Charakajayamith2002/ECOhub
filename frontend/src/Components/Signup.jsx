@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const Alert = ({ message, type }) => {
   const alertStyle = type === 'success' 
@@ -15,12 +16,14 @@ const Alert = ({ message, type }) => {
 
 const Signup = () => {
   const [formData, setFormData] = useState({
+
     name: '',
     email: '',
     password: '',
     userType: '',
   });
   const [alert, setAlert] = useState({ message: '', type: '' });
+  const navigate = useNavigate();
   
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,6 +42,7 @@ const Signup = () => {
         userType: '',
       }); // Reset form fields
       console.log(response);
+      navigate('/login')
     } catch (err) {
       setAlert({ message: err.response ? err.response.data.message : 'An error occurred during signup.', type: 'error' });
     }
@@ -95,7 +99,7 @@ const Signup = () => {
               type="submit"
               className='w-[300px] md:w-[600px] mt-8 bg-black p-3 rounded-xl mx-auto items-center text-white'
             >
-              Submit
+              Signup
             </button>
           </div>
         </form>
