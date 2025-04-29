@@ -85,41 +85,35 @@ const login = async (req, res) => {
     const { email, password } = req.body;
 
     try {
-        // Validate request
         if (!email || !password) {
             return res.status(400).json({ message: "Email and password are required" });
         }
 
-        // Find user by email
         const user = await User.findOne({ email });
         if (!user) {
             return res.status(401).json({ message: "Invalid email or password" });
         }
 
-
-        // Check password
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) {
             return res.status(401).json({ message: "Invalid email or password" });
         }
 
         // Generate token and set cookie
-        generateTokenAndSetCookie(res, user._id);
+        const token = generateTokenAndSetCookie(res, user._id);
 
-        // Send response
         res.status(200).json({
             success: true,
             message: "Login successful",
-            user: {
-                ...user._doc,
-                password: undefined, // Exclude password from response
-            },
-        });
+            token,  // Send token in response
+            user: { ...user._doc, password: undefined },
+        }); 
 
     } catch (error) {
         res.status(500).json({ message: error.message });
     }
 };
+
 
 const logout = async (req, res) => {
     res.send("Logout route");
