@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const Fertilizer = require('../models/fertilizerModel');
-
+// Create Fertilizers
 const addFertilizer = async (req, res) => {
     try {
         const imgPath = req.file.path;
