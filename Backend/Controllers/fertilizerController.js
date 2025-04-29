@@ -54,7 +54,7 @@ const getFertilizerById = async (req,res) => {
 }
 
 
-
+//Create update fertilizer function
 
 const updateFertilizer = async (req, res) => {
     try {
