@@ -78,17 +78,19 @@ const getById = async (req, res, next) => {
   return res.status(200).json({ inven });
 };
 
-//Update Inventory
+// Update Inventory Record by ID
 const updateInventory = async (req, res, next) => {
-  const id = req.params.id;
+  const id = req.params.id;         // Get inventory ID from request
+
   const {  fertilizer, work, uname, title, disc, imgurl,pest,pestcontral,challenge } =
     req.body;
 
   let invens;
 
   try {
-    invens = await Inventory.findByIdAndUpdate(id, {
-     
+
+    // Update the selected inventory document with new values
+    invens = await Inventory.findByIdAndUpdate(id, {   
       fertilizer: fertilizer,
       work: work,
       uname: uname,
@@ -98,17 +100,23 @@ const updateInventory = async (req, res, next) => {
       pest:pest,
       pestcontral:pestcontral,
       challenge:challenge,
-
     });
+
+    // Save the updated document
     invens = await invens.save();
+
   } catch (err) {
     console.log(err);
   }
+
+  // If update failed, return error
   if (!invens) {
     return res
       .status(404)
       .json({ message: "Unable to Update Inventory Details" });
   }
+
+  // Return updated inventory
   return res.status(200).json({ invens });
 };
 
