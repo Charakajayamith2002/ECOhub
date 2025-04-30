@@ -1,5 +1,5 @@
 const mongoose=require('mongoose')
-
+//Import mongoose to interact with MongoDB
 const Schema =mongoose.Schema
 
 const fertilizerSchema = new Schema({

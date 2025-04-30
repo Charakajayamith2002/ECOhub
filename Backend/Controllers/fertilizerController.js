@@ -2,7 +2,7 @@
 
 const fs = require('fs');
 const Fertilizer = require('../models/fertilizerModel');
-
+// Create Fertilizers
 const addFertilizer = async (req, res) => {
     try {
         const imgPath = req.file.path;
@@ -54,7 +54,7 @@ const getFertilizerById = async (req,res) => {
 }
 
 
-
+//Create update fertilizer function
 
 const updateFertilizer = async (req, res) => {
     try {
@@ -82,7 +82,7 @@ const updateFertilizer = async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 };
-
+//Delete Fertilizers
 const deleteFertilizer = async (req, res) => {
     try {
         const fertilizer = await Fertilizer.findByIdAndDelete(req.params.id);

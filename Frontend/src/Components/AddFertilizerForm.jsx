@@ -73,7 +73,7 @@ const AddFertilizerForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validate()) return; // Check validation before submission
+    if (!validate()) return; // Check validation 
 
     const data = new FormData();
     data.append('title', formData.title);
