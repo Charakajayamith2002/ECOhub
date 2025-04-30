@@ -132,18 +132,22 @@ const deleteInventory = async (req, res, next) => {
   let inven;
 
   try {
-    
+
     // Remove the inventory document by ID
     inven = await Inventory.findByIdAndDelete(id);
 
   } catch (err) {
     console.log(err);
   }
+
+  // If deletion failed or inventory not found
   if (!inven) {
     return res
       .status(404)
       .json({ message: "Unable to Delete Inventory Details" });
   }
+
+  // Return deleted inventory record
   return res.status(200).json({ inven });
 };
 
