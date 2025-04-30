@@ -14,17 +14,19 @@ const getAllInventory = async (req, res, next) => {
   if (!inven) {
     return res.status(404).json({ message: "Inventory not found" });
   }
-  // Display all inven
+  // Send the fetched inventory data as response
   return res.status(200).json({ inven });
 };
 
-// Inventory data insert
+// Add a New Inventory Record
 const addInventory = async (req, res, next) => {
+
+  // Destructure request body for inventory fields
   const { fertilizer, work, uname, title, disc, imgurl,pest,pestcontral,challenge,userId } =
     req.body;
 
   let inven;
-
+  // Create a new inventory document instance
   try {
     inven = new Inventory({
      
@@ -38,17 +40,20 @@ const addInventory = async (req, res, next) => {
       pestcontral,
       challenge,
       userId,
-    });
-    await inven.save();
+    }); 
+
+    await inven.save();    // Save the new inventory to the database
+
   } catch (err) {
-    console.log(err);
+    console.log(err);     // Log error if insertion fails
   }
 
-  // not insert invens
+  // If not saved successfully, send error response
   if (!inven) {
     return res.status(404).json({ message: "unable to add Inventory" });
   }
-  return res.status(200).json({ inven });
+
+  return res.status(200).json({ inven });          // Return the newly added inventory
 };
 
 // Get inventories by Id
