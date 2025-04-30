@@ -1,15 +1,16 @@
+// Import the Inventory model which interacts with the MongoDB collection
 const Inventory = require("../models/CommunityModel");
 
-//create get all inventory
+// Get All Inventory Records
 const getAllInventory = async (req, res, next) => {
   let inven;
-  // Get all Inventory
+  // Fetch all inventory documents from the database
   try {
     inven = await Inventory.find();
   } catch (err) {
-    console.log(err);
+    console.log(err);  // Log errors during DB operation
   }
-  // not found
+  // If no inventory found, return 404 status
   if (!inven) {
     return res.status(404).json({ message: "Inventory not found" });
   }
