@@ -1,5 +1,6 @@
 // routes/fertilizerRoutes.js
 
+//Import required modules
 const express = require('express');
 const multer = require('multer');
 const {
@@ -10,7 +11,7 @@ const {
     getFertilizerById,
 } = require('../Controllers/fertilizerController');
 
-const router = express.Router();
+const router = express.Router();//Create an Express router
 const upload = multer({ dest: 'uploads/' }); // Temporary storage
 
 router.post('/fertilizers', upload.single('image'), addFertilizer);
