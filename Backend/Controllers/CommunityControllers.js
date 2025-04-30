@@ -151,6 +151,8 @@ const deleteInventory = async (req, res, next) => {
   return res.status(200).json({ inven });
 };
 
+
+// Export all functions for route access
 exports.getAllInventory = getAllInventory;
 exports.addInventory = addInventory;
 exports.getById = getById;
