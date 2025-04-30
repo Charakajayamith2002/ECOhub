@@ -101,7 +101,7 @@ const detectDisease = async (req, res) => {
     res.json({ disease: diseaseSuggestions, crop });
   } catch (error) {
     console.error('Error detecting disease:', error.message);
-    res.status(500).json({ error: error.message || 'Failed to detect disease' });
+    res.status(500).json({ error: error.message || 'Failed to detect disease' }); //API error handling
   }
 };
 
