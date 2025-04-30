@@ -124,14 +124,18 @@ const updateInventory = async (req, res, next) => {
 };
 
 
-//Delete Inventory
+// Delete Inventory Record by ID
 const deleteInventory = async (req, res, next) => {
-  const id = req.params.id;
+
+  const id = req.params.id;     // Get inventory ID from request
 
   let inven;
 
   try {
+    
+    // Remove the inventory document by ID
     inven = await Inventory.findByIdAndDelete(id);
+
   } catch (err) {
     console.log(err);
   }
