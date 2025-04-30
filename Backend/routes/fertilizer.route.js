@@ -20,4 +20,4 @@ router.get('/fertilizers', getAllFertilizers);
 router.put('/fertilizers/:id', upload.single('image'), updateFertilizer);
 router.delete('/fertilizers/:id', deleteFertilizer);
 
-module.exports = router;
+module.exports = router;//Export router
