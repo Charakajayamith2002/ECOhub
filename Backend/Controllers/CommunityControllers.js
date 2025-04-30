@@ -18,6 +18,7 @@ const getAllInventory = async (req, res, next) => {
   return res.status(200).json({ inven });
 };
 
+
 // Add a New Inventory Record
 const addInventory = async (req, res, next) => {
 
@@ -56,6 +57,7 @@ const addInventory = async (req, res, next) => {
   return res.status(200).json({ inven });          // Return the newly added inventory
 };
 
+
 // Get Inventory Record by ID
 const getById = async (req, res, next) => {
   const id = req.params.id;           // Extract inventory ID from request params
@@ -77,6 +79,7 @@ const getById = async (req, res, next) => {
   // Send the matched inventory as response
   return res.status(200).json({ inven });
 };
+
 
 // Update Inventory Record by ID
 const updateInventory = async (req, res, next) => {
@@ -119,6 +122,7 @@ const updateInventory = async (req, res, next) => {
   // Return updated inventory
   return res.status(200).json({ invens });
 };
+
 
 //Delete Inventory
 const deleteInventory = async (req, res, next) => {
