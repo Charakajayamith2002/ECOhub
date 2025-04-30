@@ -18,6 +18,7 @@ const getAllInventory = async (req, res, next) => {
   return res.status(200).json({ inven });
 };
 
+
 // Add a New Inventory Record
 const addInventory = async (req, res, next) => {
 
@@ -56,6 +57,7 @@ const addInventory = async (req, res, next) => {
   return res.status(200).json({ inven });          // Return the newly added inventory
 };
 
+
 // Get Inventory Record by ID
 const getById = async (req, res, next) => {
   const id = req.params.id;           // Extract inventory ID from request params
@@ -77,6 +79,7 @@ const getById = async (req, res, next) => {
   // Send the matched inventory as response
   return res.status(200).json({ inven });
 };
+
 
 // Update Inventory Record by ID
 const updateInventory = async (req, res, next) => {
@@ -120,25 +123,36 @@ const updateInventory = async (req, res, next) => {
   return res.status(200).json({ invens });
 };
 
-//Delete Inventory
+
+// Delete Inventory Record by ID
 const deleteInventory = async (req, res, next) => {
-  const id = req.params.id;
+
+  const id = req.params.id;     // Get inventory ID from request
 
   let inven;
 
   try {
+
+    // Remove the inventory document by ID
     inven = await Inventory.findByIdAndDelete(id);
+
   } catch (err) {
     console.log(err);
   }
+
+  // If deletion failed or inventory not found
   if (!inven) {
     return res
       .status(404)
       .json({ message: "Unable to Delete Inventory Details" });
   }
+
+  // Return deleted inventory record
   return res.status(200).json({ inven });
 };
 
+
+// Export all functions for route access
 exports.getAllInventory = getAllInventory;
 exports.addInventory = addInventory;
 exports.getById = getById;
