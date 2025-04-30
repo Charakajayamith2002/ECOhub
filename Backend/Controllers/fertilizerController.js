@@ -82,7 +82,7 @@ const updateFertilizer = async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 };
-
+//Delete Fertilizers
 const deleteFertilizer = async (req, res) => {
     try {
         const fertilizer = await Fertilizer.findByIdAndDelete(req.params.id);
