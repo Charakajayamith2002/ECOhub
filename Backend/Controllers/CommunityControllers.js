@@ -1,28 +1,32 @@
+// Import the Inventory model which interacts with the MongoDB collection
 const Inventory = require("../models/CommunityModel");
 
+// Get All Inventory Records
 const getAllInventory = async (req, res, next) => {
   let inven;
-  // Get all Inventory
+  // Fetch all inventory documents from the database
   try {
     inven = await Inventory.find();
   } catch (err) {
-    console.log(err);
+    console.log(err);  // Log errors during DB operation
   }
-  // not found
+  // If no inventory found, return 404 status
   if (!inven) {
     return res.status(404).json({ message: "Inventory not found" });
   }
-  // Display all inven
+  // Send the fetched inventory data as response
   return res.status(200).json({ inven });
 };
 
-// data Insert
+// Add a New Inventory Record
 const addInventory = async (req, res, next) => {
+
+  // Destructure request body for inventory fields
   const { fertilizer, work, uname, title, disc, imgurl,pest,pestcontral,challenge,userId } =
     req.body;
 
   let inven;
-
+  // Create a new inventory document instance
   try {
     inven = new Inventory({
      
@@ -36,48 +40,57 @@ const addInventory = async (req, res, next) => {
       pestcontral,
       challenge,
       userId,
-    });
-    await inven.save();
+    }); 
+
+    await inven.save();    // Save the new inventory to the database
+
   } catch (err) {
-    console.log(err);
+    console.log(err);     // Log error if insertion fails
   }
 
-  // not insert invens
+  // If not saved successfully, send error response
   if (!inven) {
     return res.status(404).json({ message: "unable to add Inventory" });
   }
-  return res.status(200).json({ inven });
+
+  return res.status(200).json({ inven });          // Return the newly added inventory
 };
 
-//Get by Id
+// Get Inventory Record by ID
 const getById = async (req, res, next) => {
-  const id = req.params.id;
+  const id = req.params.id;           // Extract inventory ID from request params
 
   let inven;
 
   try {
+    // Find inventory document by its unique ID
     inven = await Inventory.findById(id);
   } catch (err) {
     console.log(err);
   }
-  // not available invens
+
+  // If inventory with the given ID doesn't exist
   if (!inven) {
     return res.status(404).json({ message: "Inventory Not Found" });
   }
+
+  // Send the matched inventory as response
   return res.status(200).json({ inven });
 };
 
-//Update inven Details
+// Update Inventory Record by ID
 const updateInventory = async (req, res, next) => {
-  const id = req.params.id;
+  const id = req.params.id;         // Get inventory ID from request
+
   const {  fertilizer, work, uname, title, disc, imgurl,pest,pestcontral,challenge } =
     req.body;
 
   let invens;
 
   try {
-    invens = await Inventory.findByIdAndUpdate(id, {
-     
+
+    // Update the selected inventory document with new values
+    invens = await Inventory.findByIdAndUpdate(id, {   
       fertilizer: fertilizer,
       work: work,
       uname: uname,
@@ -87,21 +100,27 @@ const updateInventory = async (req, res, next) => {
       pest:pest,
       pestcontral:pestcontral,
       challenge:challenge,
-
     });
+
+    // Save the updated document
     invens = await invens.save();
+
   } catch (err) {
     console.log(err);
   }
+
+  // If update failed, return error
   if (!invens) {
     return res
       .status(404)
       .json({ message: "Unable to Update Inventory Details" });
   }
+
+  // Return updated inventory
   return res.status(200).json({ invens });
 };
 
-//Delete inven Details
+//Delete Inventory
 const deleteInventory = async (req, res, next) => {
   const id = req.params.id;
 
