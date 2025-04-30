@@ -8,7 +8,7 @@ const FertilizerList = () => {
 
   useEffect(() => {
     fetchFertilizers();
-  }, []); // Changed to empty array to run only once on mount
+  }, []); // Changed to empty array to run
 
   const fetchFertilizers = async () => {
     try {
@@ -47,6 +47,7 @@ const FertilizerList = () => {
           Add Fertilizer
         </button>
       </div>
+     
       <table className="min-w-full bg-white border border-black shadow-md rounded-lg overflow-hidden">
         <thead>
           <tr className="bg-gray-800 text-white text-left">
