@@ -56,22 +56,25 @@ const addInventory = async (req, res, next) => {
   return res.status(200).json({ inven });          // Return the newly added inventory
 };
 
-// Get inventories by Id
+// Get Inventory Record by ID
 const getById = async (req, res, next) => {
-  const id = req.params.id;
+  const id = req.params.id;           // Extract inventory ID from request params
 
   let inven;
 
   try {
+    // Find inventory document by its unique ID
     inven = await Inventory.findById(id);
   } catch (err) {
     console.log(err);
   }
 
-  // not available invens
+  // If inventory with the given ID doesn't exist
   if (!inven) {
     return res.status(404).json({ message: "Inventory Not Found" });
   }
+
+  // Send the matched inventory as response
   return res.status(200).json({ inven });
 };
 
