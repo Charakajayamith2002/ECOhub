@@ -34,7 +34,7 @@ const FileUpload = () => {
         },
       });
       console.log('Response:', response.data);
-      navigate('/diseaseResult', { state: { result: response.data } });
+      navigate('/diseaseResult', { state: { result: response.data } }); //add errror message
     } catch (err) {
       console.error('Error uploading file:', err);
       setError('Failed to upload file. Please try again.');
@@ -42,7 +42,7 @@ const FileUpload = () => {
       setLoading(false);
     }
   };
-
+  
   return (
     <div className="max-w-lg mx-auto p-8 bg-white shadow-lg rounded-xl mt-20 Wrapper mb-40">
       <h1 className="text-3xl font-bold font-sans mb-6 text-center">Upload Image for Disease Detection</h1>
